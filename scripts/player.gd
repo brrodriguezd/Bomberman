@@ -1,25 +1,24 @@
 extends CharacterBody2D
 
-@onready var main = get_tree().get_root().get_node("Game")
-@onready var bomb = load("res://scenes/bomb.tscn")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var bomb_placement_system: Node = $BombPlacementSystem
 
-const SPEED = 100.0
+@export var  SPEED = 100.0
+@export var max_bombs_at_once = 1
 
-func bomb_accion():
-	var instance = bomb.instantiate()
-	instance.spawnPos = global_position
-	# para evitar que aparezca exactamente sobre el jugador
-	instance.zdex = z_index + 1
-	instance.start()
-	main.add_child.call_deferred(instance)
+#func bomb_accion():
+	#var instance = bomb.instantiate()
+	#instance.spawnPos = global_position
+	## para evitar que aparezca exactamente sobre el jugador
+	#instance.zdex = z_index + 1
+	#instance.start()
+	#main.add_child.call_deferred(instance)
 
 func _physics_process(delta: float) -> void:
 	# Ejemplo existente para la tecla 0
 	if Input.is_action_just_pressed("place_bomb"):
-		print("pressed")
-		bomb_accion()
+		bomb_placement_system.place_bomb()
 	
 	# Obtiene la direccion del movimiento
 		# (0,0): No hay input
