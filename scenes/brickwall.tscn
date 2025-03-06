@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjpvugy6t5ubf"]
+
+[ext_resource type="Script" uid="uid://c60x73l3umejw" path="res://scripts/brickwall.gd" id="1_3bmjd"]
+[ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_vmmed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lknim"]
+atlas = ExtResource("1_vmmed")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vnui"]
+atlas = ExtResource("1_vmmed")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376p0"]
+atlas = ExtResource("1_vmmed")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq21k"]
+atlas = ExtResource("1_vmmed")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5v6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lknim")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vnui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_376p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq21k")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmc5t"]
+size = Vector2(16, 16)
+
+[node name="brickwall" type="StaticBody2D"]
+script = ExtResource("1_3bmjd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d5v6e")
+animation = &"destroy"
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hmc5t")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
