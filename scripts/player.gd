@@ -21,10 +21,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Nueva funcionalidad al presionar la tecla Z
 	if Input.is_key_label_pressed(KEY_Z):
-		# Se asume que el TileMap se llama "TileMapLayer" y es hijo de "Game"
-		var tilemap = get_parent().get_node("TileMapLayer")
-		var tile_coords = tilemap.world_to_map(global_position)
-		print("Tile en el que se encuentra: ", tile_coords)
+		pass
 	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * SPEED
