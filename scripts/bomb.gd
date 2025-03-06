@@ -6,3 +6,4 @@ class_name Bomb
 func _on_cooldown_timer_timeout() -> void:
 	queue_free()
 	
+ 

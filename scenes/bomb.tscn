@@ -105,12 +105,14 @@ script = ExtResource("1_c8xuy")
 sprite_frames = SubResource("SpriteFrames_sk3su")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_vpdcx")
-
 [node name="ExplosionTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vpdcx")
 
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_cooldown_timer_timeout"]
