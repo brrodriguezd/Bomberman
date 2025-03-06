@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://ls7p7cbnjovb"]
+[gd_scene load_steps=7 format=4 uid="uid://ls7p7cbnjovb"]
 
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_fulmg"]
 [ext_resource type="PackedScene" uid="uid://cfu5sexiy7t4p" path="res://scenes/player.tscn" id="2_3grl8"]
 [ext_resource type="Script" uid="uid://sery2v45pxwy" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cjpvugy6t5ubf" path="res://scenes/brickwall.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3a5y"]
 texture = ExtResource("1_fulmg")
@@ -154,4 +155,34 @@ position = Vector2(-90, -48)
 position = Vector2(1, -8)
 zoom = Vector2(2, 2)
 
-[node name="Node" type="Node" parent="."]
+[node name="BrickWalls" type="Node" parent="."]
+
+[node name="brickwall" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-24, -88)
+
+[node name="brickwall2" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-24, -8)
+
+[node name="brickwall3" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(40, -56)
+
+[node name="brickwall4" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(40, 40)
+
+[node name="brickwall5" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-56, 40)
+
+[node name="brickwall6" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(72, -56)
+
+[node name="brickwall7" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(88, 40)
+
+[node name="brickwall8" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-104, 8)
+
+[node name="brickwall9" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(24, -88)
+
+[node name="brickwall10" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-104, -88)
