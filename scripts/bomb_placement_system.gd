@@ -22,14 +22,15 @@ func place_bomb():
 	
 	# Encontrado a prueba y error
 	const correction_factor = Vector2(16,8)
-	
+	# Posicion de la Bomba
 	var bomb_position = Vector2(floor((player_position.x + correction_factor.x) / TILE_SIZE) * TILE_SIZE - 8,  \
 								floor((player_position.y + correction_factor.y) / TILE_SIZE) * TILE_SIZE - 8 )
-	print(player_position)
-	
+									
 	bomb.position = bomb_position
+	# Agrega a la escena principal de Game, Tal vez hay que modificar para los niveles, ya que los niveles son hijos de Game
 	get_tree().root.add_child(bomb)
 	bombs_placed += 1
+	# Asignamos que cuando la bomba salga del arbol, ejecute dicha funcon on_bomb_exploded
 	bomb.tree_exiting.connect(on_bomb_exploded)
 
 func on_bomb_exploded():

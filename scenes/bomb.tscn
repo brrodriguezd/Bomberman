@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://v6v3amk4jd3e" path="res://scripts/bomb.gd" id="1_c8xuy"]
 [ext_resource type="Texture2D" uid="uid://b5rhvfq4juet5" path="res://assets/sprites/bomb.png" id="2_vpdcx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpdcx"]
+size = Vector2(16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j15uc"]
 atlas = ExtResource("2_vpdcx")
 region = Rect2(0, 0, 16, 16)
@@ -95,11 +98,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpdcx"]
-size = Vector2(16, 16)
-
 [node name="bomb" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_c8xuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vpdcx")
 
 [node name="AnimatedSpritePlaceholder" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sk3su")
@@ -114,5 +118,9 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_vpdcx")
+disabled = true
 
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="visibility_changed" from="StaticBody2D" to="." method="_on_static_body_2d_visibility_changed"]

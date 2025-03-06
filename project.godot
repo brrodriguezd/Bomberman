@@ -57,6 +57,11 @@ place_bomb={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player, Tiles, BrickWalls"
+2d_physics/layer_2="Bomb"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

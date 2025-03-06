@@ -7,14 +7,6 @@ extends CharacterBody2D
 @export var  SPEED = 100.0
 @export var max_bombs_at_once = 1
 
-#func bomb_accion():
-	#var instance = bomb.instantiate()
-	#instance.spawnPos = global_position
-	## para evitar que aparezca exactamente sobre el jugador
-	#instance.zdex = z_index + 1
-	#instance.start()
-	#main.add_child.call_deferred(instance)
-
 func _physics_process(delta: float) -> void:
 	# Ejemplo existente para la tecla 0
 	if Input.is_action_just_pressed("place_bomb"):
