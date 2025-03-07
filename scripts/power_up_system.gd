@@ -35,6 +35,7 @@ func enable_power_up(power_up_type : PowerUps.PowerUps):
 
 
 func _on_speed_up_timer_timeout() -> void:
+	print("reducing speed")
 	player.SPEED /= 2.0
 	animated_sprite.speed_scale = 0.5
 

@@ -297,9 +297,11 @@ script = ExtResource("4_dqkch")
 
 [node name="SpeedUpTimer" type="Timer" parent="PowerUpSystem"]
 wait_time = 10.0
+one_shot = true
 
 [node name="PassWallsTimer" type="Timer" parent="PowerUpSystem"]
 wait_time = 5.0
+one_shot = true
 
 [connection signal="timeout" from="PowerUpSystem/SpeedUpTimer" to="PowerUpSystem" method="_on_speed_up_timer_timeout"]
 [connection signal="timeout" from="PowerUpSystem/PassWallsTimer" to="PowerUpSystem" method="_on_pass_walls_timer_timeout"]
