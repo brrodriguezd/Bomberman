@@ -8,7 +8,7 @@ const TILE_SIZE = 16
 
 var player: CharacterBody2D = null
 var bombs_placed = 0
-var explosion_size = 1
+@export var explosion_size = 1
 
 func _ready() -> void:
 	player = get_parent()
@@ -18,6 +18,7 @@ func place_bomb():
 		return
 	
 	var bomb = BOMB_SCENE.instantiate()
+	bomb.explosion_size = explosion_size
 	var player_position = player.position
 	
 	# Encontrado a prueba y error

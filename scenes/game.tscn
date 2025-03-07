@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://ls7p7cbnjovb"]
+[gd_scene load_steps=17 format=4 uid="uid://ls7p7cbnjovb"]
 
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_fulmg"]
 [ext_resource type="PackedScene" uid="uid://cfu5sexiy7t4p" path="res://scenes/player.tscn" id="2_3grl8"]
 [ext_resource type="Script" uid="uid://sery2v45pxwy" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://doevek88eysow" path="res://scenes/brickwall.tscn" id="4_lbhrr"]
 [ext_resource type="Resource" uid="uid://gyr8e0nrdvxb" path="res://resources/fire.tres" id="5_iywne"]
+[ext_resource type="Script" path="res://scripts/powerup_res.gd" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://cbgpmnhx5j3ph" path="res://assets/sprites/PowerUpBombUp.png" id="7_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://cs402f120mogm" path="res://assets/sprites/PowerUpSpeedUp.png" id="8_vtaks"]
+[ext_resource type="Texture2D" uid="uid://3uta7gg8fy2c" path="res://assets/sprites/PowerUpWallPass.png" id="9_kvpfn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lbhrr"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 65536, 0, 65537, 65536, 1)
@@ -150,6 +154,24 @@ sources/0 = SubResource("TileSetAtlasSource_x3a5y")
 pattern_0 = SubResource("TileMapPattern_lbhrr")
 pattern_1 = SubResource("TileMapPattern_iywne")
 
+[sub_resource type="Resource" id="Resource_u5sy4"]
+script = ExtResource("6_p57ef")
+type = 0
+texture = ExtResource("7_0tnpc")
+metadata/_custom_type_script = "uid://dxqb4ayubhllj"
+
+[sub_resource type="Resource" id="Resource_dinhu"]
+script = ExtResource("6_p57ef")
+type = 2
+texture = ExtResource("8_vtaks")
+metadata/_custom_type_script = "uid://dxqb4ayubhllj"
+
+[sub_resource type="Resource" id="Resource_kvuet"]
+script = ExtResource("6_p57ef")
+type = 3
+texture = ExtResource("9_kvpfn")
+metadata/_custom_type_script = "uid://dxqb4ayubhllj"
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -175,12 +197,15 @@ position = Vector2(-24, -8)
 
 [node name="brickwall3" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(40, -56)
+power_up_res = SubResource("Resource_u5sy4")
 
 [node name="brickwall4" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(40, 40)
+power_up_res = SubResource("Resource_dinhu")
 
 [node name="brickwall5" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(-56, 40)
+power_up_res = SubResource("Resource_kvuet")
 
 [node name="brickwall6" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(72, -56)
