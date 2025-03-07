@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjpvugy6t5ubf"]
+[gd_scene load_steps=10 format=3 uid="uid://doevek88eysow"]
 
-[ext_resource type="Script" uid="uid://c60x73l3umejw" path="res://scripts/brickwall.gd" id="1_3bmjd"]
+[ext_resource type="Script" path="res://scripts/brickwall.gd" id="1_3bmjd"]
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_vmmed"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lknim"]

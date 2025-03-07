@@ -39,3 +39,8 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = direction * SPEED
 	move_and_slide()
+	
+func die():
+	animated_sprite.play("die")
+	SPEED = Vector2.ZERO
+	set_process_input(false)

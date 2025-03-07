@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0ije0108kiiw"]
+
+[ext_resource type="Texture2D" uid="uid://bblkjwg06v88k" path="res://assets/sprites/sprites.png" id="1_si6ib"]
+[ext_resource type="Script" uid="uid://r7q4rbkyallh" path="res://scripts/central_explosion.gd" id="2_eg57w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg57w"]
+atlas = ExtResource("1_si6ib")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7inpy"]
+atlas = ExtResource("1_si6ib")
+region = Rect2(112, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f376v"]
+atlas = ExtResource("1_si6ib")
+region = Rect2(32, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y46xu"]
+atlas = ExtResource("1_si6ib")
+region = Rect2(112, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqkl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg57w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7inpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f376v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y46xu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3732l"]
+size = Vector2(16, 16)
+
+[node name="CentralExplosion" type="Area2D"]
+collision_layer = 4
+script = ExtResource("2_eg57w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bqkl3")
+autoplay = "default"
+
+[node name="CExplosionCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3732l")
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="RayCastUp" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(0, -16)
+
+[node name="RayCastRight" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(16, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(0, 16)
+
+[node name="RayCastLeft" type="RayCast2D" parent="RayCasts"]
+target_position = Vector2(-16, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
