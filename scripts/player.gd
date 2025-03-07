@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
+class_name Player
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var bomb_placement_system: Node = $BombPlacementSystem
+@onready var power_up_system: Node = $PowerUpSystem
 
 @export var  SPEED = 100.0
 @export var max_bombs_at_once = 1
@@ -44,3 +46,6 @@ func die():
 	animated_sprite.play("die")
 	SPEED = Vector2.ZERO
 	set_process_input(false)
+
+func enable_power_up(power_up_type: PowerUps.PowerUps):
+	power_up_system.enable_power_up(power_up_type)

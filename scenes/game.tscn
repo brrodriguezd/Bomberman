@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://ls7p7cbnjovb"]
+[gd_scene load_steps=10 format=4 uid="uid://ls7p7cbnjovb"]
 
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_fulmg"]
 [ext_resource type="PackedScene" uid="uid://cfu5sexiy7t4p" path="res://scenes/player.tscn" id="2_3grl8"]
 [ext_resource type="Script" uid="uid://sery2v45pxwy" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://cjpvugy6t5ubf" path="res://scenes/brickwall.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://doevek88eysow" path="res://scenes/brickwall.tscn" id="4_lbhrr"]
+[ext_resource type="Resource" uid="uid://gyr8e0nrdvxb" path="res://resources/fire.tres" id="5_iywne"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lbhrr"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 65536, 0, 65537, 65536, 1)
@@ -167,6 +168,7 @@ zoom = Vector2(2, 2)
 
 [node name="brickwall" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(-24, -88)
+power_up_res = ExtResource("5_iywne")
 
 [node name="brickwall2" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(-24, -8)

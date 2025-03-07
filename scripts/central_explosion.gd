@@ -7,12 +7,7 @@ class_name CentralExplosion
 	$RayCasts/RayCastRight,
 	$RayCasts/RayCastDown,
 	$RayCasts/RayCastLeft
-]
-
-func _on_body_entered(player: Node2D) -> void:
-	if player is CharacterBody2D:
-		print("player found")
-		player.die()
+]	
 
 const DIRECTIONAL_EXPLOSION = preload("res://scenes/directional_explosion.tscn")
 
@@ -73,3 +68,8 @@ func execute_explosion_collision(collider: Object):
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		(body as Player).die() # Replace with function body.

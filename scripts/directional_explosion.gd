@@ -12,5 +12,5 @@ func _on_area_entered(player: CharacterBody2D) -> void:
 
 
 func _on_body_entered(player: Node2D) -> void:
-	if player is CharacterBody2D:
-		player.die()
+	if player is Player:
+		(player as Player).die()

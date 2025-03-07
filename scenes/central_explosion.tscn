@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0ije0108kiiw"]
+[gd_scene load_steps=9 format=3 uid="uid://8oc5yk2s8gqt"]
 
 [ext_resource type="Texture2D" uid="uid://bblkjwg06v88k" path="res://assets/sprites/sprites.png" id="1_si6ib"]
 [ext_resource type="Script" uid="uid://r7q4rbkyallh" path="res://scripts/central_explosion.gd" id="2_eg57w"]
@@ -67,5 +67,4 @@ target_position = Vector2(0, 16)
 [node name="RayCastLeft" type="RayCast2D" parent="RayCasts"]
 target_position = Vector2(-16, 0)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
