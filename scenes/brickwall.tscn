@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjpvugy6t5ubf"]
+[gd_scene load_steps=10 format=3 uid="uid://cjpvugy6t5ubf"]
 
 [ext_resource type="Script" uid="uid://c60x73l3umejw" path="res://scripts/brickwall.gd" id="1_3bmjd"]
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_vmmed"]
@@ -7,15 +7,19 @@
 atlas = ExtResource("1_vmmed")
 region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8vnui"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bmjd"]
 atlas = ExtResource("1_vmmed")
 region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_376p0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ocg"]
+atlas = ExtResource("1_vmmed")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0dn6"]
 atlas = ExtResource("1_vmmed")
 region = Rect2(64, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bq21k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbde8"]
 atlas = ExtResource("1_vmmed")
 region = Rect2(80, 16, 16, 16)
 
@@ -31,13 +35,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8vnui")
+"texture": SubResource("AtlasTexture_3bmjd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_376p0")
+"texture": SubResource("AtlasTexture_n0ocg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bq21k")
+"texture": SubResource("AtlasTexture_u0dn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbde8")
 }],
 "loop": false,
 "name": &"destroy",
@@ -54,7 +61,7 @@ script = ExtResource("1_3bmjd")
 sprite_frames = SubResource("SpriteFrames_d5v6e")
 animation = &"destroy"
 autoplay = "default"
-frame = 2
+frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -27,7 +27,11 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	# Animaciones
-	if direction == Vector2(0,0) or is_on_wall():
+	if direction.y > 0:
+		animated_sprite.play("down")
+	elif  direction.y < 0:
+		animated_sprite.play("up")
+	elif direction == Vector2(0,0) or is_on_wall():
 		animated_sprite.play("idle")
 	elif direction.x != 0:
 		animated_sprite.play("run")
