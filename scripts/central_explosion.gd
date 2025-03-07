@@ -55,6 +55,11 @@ func create_explosion_animation_slice(animation_name: String, animation_position
 
 func calculate_size_of_explosion(raycast :RayCast2D):
 	var collider = raycast.get_collider()
+	if collider is Player:
+		var collision_point = raycast.get_collision_point()
+		var distance_to_collider = raycast.global_position.distance_to(collision_point)
+		var size_of_explosion_before_collider = max(roundi(absf(distance_to_collider)/TILE_SIZE - 1), 0)
+		return size_of_explosion_before_collider + 1
 	if collider is TileMapLayer:
 		var collision_point = raycast.get_collision_point()
 		

@@ -8,8 +8,11 @@ class_name Player
 
 @export var  SPEED = 100.0
 @export var max_bombs_at_once = 1
+var isdead = false
 
 func _physics_process(delta: float) -> void:
+	if isdead:
+		return
 	# Ejemplo existente para la tecla 0
 	if Input.is_action_just_pressed("place_bomb"):
 		bomb_placement_system.place_bomb()
@@ -43,9 +46,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func die():
+	isdead = true
+	set_process_input(false)
 	animated_sprite.play("die")
 	SPEED = Vector2.ZERO
-	set_process_input(false)
 
 func enable_power_up(power_up_type: PowerUps.PowerUps):
 	power_up_system.enable_power_up(power_up_type)

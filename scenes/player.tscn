@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b1fw1nobmnumn" path="res://scripts/player.gd" id="1_1beav"]
 [ext_resource type="Texture2D" uid="uid://c41nwcc65r4so" path="res://assets/sprites/knight.png" id="1_nxvpi"]
 [ext_resource type="Script" uid="uid://bbed8vx2b4grq" path="res://scripts/bomb_placement_system.gd" id="3_qhqgy"]
-[ext_resource type="Script" uid="uid://lnpt4mv2qjbf" path="res://scripts/power_up_system.gd" id="4_dqkch"]
+[ext_resource type="Script" path="res://scripts/power_up_system.gd" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
 atlas = ExtResource("1_nxvpi")
@@ -196,7 +196,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ur7pv")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 10.0
 }, {
@@ -317,6 +317,8 @@ position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_noffc")
 animation = &"die"
 autoplay = "idle"
+frame = 11
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -8)
