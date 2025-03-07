@@ -7,6 +7,7 @@ var player: Player
 @onready var animated_sprite : AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var bomb_placement_system : BombPlacementSystem = $"../BombPlacementSystem"
 @onready var speedup_timer: Timer = $SpeedUpTimer
+@onready var bomb: Bomb = $bomb
 
 func _ready() -> void:
 	player = get_parent()

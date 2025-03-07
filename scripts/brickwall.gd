@@ -11,6 +11,7 @@ func destroy():
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "destroy":
+		print(power_up_res)
 		if power_up_res != null:
 			spawn_power_up()
 		queue_free()
