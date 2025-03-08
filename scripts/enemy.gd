@@ -12,26 +12,30 @@ var current_change_direction_timeout: float = 0.0
 var direction: Vector2 = Vector2.LEFT
 var tile_map: TileMapLayer
 
+const TILE_SIZE = 16
+const CORRECTION_FACTOR = Vector2(16, 8)  # Factor de corrección similar al de la bomba
+
 func _ready() -> void:
 	tile_map = get_tree().get_first_node_in_group("tilemap")
-
 
 func _process(delta: float) -> void:
 	position += direction * speed * delta
 	
+	# Ajuste la coordenada ortogonal aplicando el factor de corrección y alineando al tile
 	if direction == Vector2.LEFT or direction == Vector2.RIGHT:
-		position.y = roundf(position.y / 16) * 16
+		position.y = floor((position.y + CORRECTION_FACTOR.y) / TILE_SIZE) * TILE_SIZE - 8
 	elif direction == Vector2.UP or direction == Vector2.DOWN:
-		position.x = roundf(position.x / 16) * 16
+		position.x = floor((position.x + CORRECTION_FACTOR.x) / TILE_SIZE) * TILE_SIZE - 8
 	
-	if roundi(position.x) % 16 == 0 && roundi(position.y) % 16 == 0 && \
-		current_change_direction_timeout >= change_direction_timeout && \
+	# Se asume que las posiciones correctas tienen un offset de 8 (valor constante tras el floor)
+	if ((roundi(position.x) - 8) % TILE_SIZE == 0) and ((roundi(position.y) - 8) % TILE_SIZE == 0) and \
+		current_change_direction_timeout >= change_direction_timeout and \
 		randf() <= direction_intersection_change_chance:
 			current_change_direction_timeout = 0
 			change_direction_at_intersection(direction)
 		
 	current_change_direction_timeout += delta
-	
+
 func change_direction_at_intersection(current_direction: Vector2):
 	direction = calculate_new_direction(current_direction, true)
 	
@@ -54,12 +58,18 @@ func calculate_new_direction(current_direction: Vector2, prevent_backtracking: b
 		return new_direction
 	return current_direction
 
-func is_direction_blocked(direction_to_check: Vector2):
-	var position_to_check = round(position/16)*16  + direction_to_check*16
+func is_direction_blocked(direction_to_check: Vector2) -> bool:
+	# Se calcula la posición base en el grid usando el mismo factor de corrección que en la bomba
+	var base_position = Vector2(
+		floor((position.x + CORRECTION_FACTOR.x) / TILE_SIZE) * TILE_SIZE - 8,
+		floor((position.y + CORRECTION_FACTOR.y) / TILE_SIZE) * TILE_SIZE - 8)
+	print(base_position)
+	var position_to_check = base_position + direction_to_check * TILE_SIZE
 	var local_position_to_check = tile_map.to_local(position_to_check)
 	var tile_position = tile_map.local_to_map(local_position_to_check)
 	var tile_data = tile_map.get_cell_tile_data(tile_position)
-	return tile_data != null
+	print(tile_data.get_custom_data("IsSolid"))
+	return tile_data.get_custom_data("IsSolid") == true
 	
 func _on_area_entered(body: Area2D) -> void:
 	direction = calculate_new_direction(direction, false)
@@ -69,13 +79,14 @@ func _on_body_entered(body: Node2D) -> void:
 		(body as Player).die()
 	elif body is TileMapLayer:
 		direction = calculate_new_direction(direction, false)
+	elif body is BrickWall:
+		direction = calculate_new_direction(direction, false)
 	
-
-func change_sprite_direction(new_direction: Vector2):
+func change_sprite_direction(new_direction: Vector2) -> void:
 	if [Vector2.LEFT, Vector2.RIGHT].has(new_direction):
 		animated_sprite_2d.scale.x = sign(new_direction.x)
 
-func die():
+func die() -> void:
 	animated_sprite_2d.play("die")
 	set_physics_process(false)
 	speed = 0

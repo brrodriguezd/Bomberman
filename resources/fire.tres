@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PowerUpRes" load_steps=3 format=3 uid="uid://gyr8e0nrdvxb"]
 
-[ext_resource type="Script" path="res://scripts/powerup_res.gd" id="1_sr6l2"]
+[ext_resource type="Script" uid="uid://dxqb4ayubhllj" path="res://scripts/powerup_res.gd" id="1_sr6l2"]
 [ext_resource type="Texture2D" uid="uid://dkv0p32lg410w" path="res://assets/sprites/PowerUpFireUp.png" id="2_fsvyx"]
 
 [resource]

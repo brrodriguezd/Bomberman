@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://crb5i0m0ate8i"]
+[gd_resource type="Resource" script_class="PowerUpRes" load_steps=3 format=3 uid="uid://crb5i0m0ate8i"]
 
 [ext_resource type="Script" uid="uid://dxqb4ayubhllj" path="res://scripts/powerup_res.gd" id="1_y86dx"]
 [ext_resource type="Texture2D" uid="uid://3uta7gg8fy2c" path="res://assets/sprites/PowerUpWallPass.png" id="2_3xqvn"]
