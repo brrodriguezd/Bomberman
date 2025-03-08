@@ -177,7 +177,7 @@ type = 3
 texture = ExtResource("9_kvpfn")
 metadata/_custom_type_script = "uid://dxqb4ayubhllj"
 
-[node name="Game" type="Node2D"]
+[node name="Game 2 Players" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(6, -12)
@@ -215,6 +215,10 @@ position = Vector2(40, 40)
 power_up_res = SubResource("Resource_dinhu")
 
 [node name="brickwall5" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-56, 40)
+power_up_res = SubResource("Resource_kvuet")
+
+[node name="brickwall11" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(-56, 40)
 power_up_res = SubResource("Resource_kvuet")
 

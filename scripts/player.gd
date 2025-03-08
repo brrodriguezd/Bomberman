@@ -6,6 +6,8 @@ class_name Player
 @onready var bomb_placement_system: Node = $BombPlacementSystem
 @onready var power_up_system: Node = $PowerUpSystem
 @onready var player: Player = $"."
+@onready var timer_after_death: Timer = $TimerAfterDeath
+
 
 @export var  SPEED = 100.0
 @export var max_bombs_at_once = 1
@@ -38,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		return
 	# Ejemplo para la tecla de colocar bomba (se mantiene is_action_just_pressed)
 	if Input.is_action_just_pressed(bomb_action):
+		print($"../BrickWalls/Enemies".get_children())
 		bomb_placement_system.place_bomb()
 	
 	# Obtiene la dirección verificando cada acción especifica usando is_action_pressed
@@ -75,8 +78,12 @@ func die():
 		return
 	set_process_input(false)
 	animated_sprite.play("die")
+	timer_after_death.start()
 	SPEED = Vector2.ZERO
 	isdead = true
 
 func enable_power_up(power_up_type: PowerUps.PowerUps):
 	power_up_system.enable_power_up(power_up_type)
+
+func _on_timer_after_death_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

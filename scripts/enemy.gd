@@ -8,6 +8,8 @@ class_name Enemy
 @export var direction_intersection_change_chance: float = 0.5
 @export var change_direction_timeout: float = 3.0
 var current_change_direction_timeout: float = 0.0
+@onready var enemies: Node = $".."
+@onready var timer_enemy: Timer = $TimerEnemy
 
 var direction: Vector2 = Vector2.LEFT
 var tile_map: TileMapLayer
@@ -63,12 +65,12 @@ func is_direction_blocked(direction_to_check: Vector2) -> bool:
 	var base_position = Vector2(
 		floor((position.x + CORRECTION_FACTOR.x) / TILE_SIZE) * TILE_SIZE - 8,
 		floor((position.y + CORRECTION_FACTOR.y) / TILE_SIZE) * TILE_SIZE - 8)
-	print(base_position)
+	# print(base_position)
 	var position_to_check = base_position + direction_to_check * TILE_SIZE
 	var local_position_to_check = tile_map.to_local(position_to_check)
 	var tile_position = tile_map.local_to_map(local_position_to_check)
 	var tile_data = tile_map.get_cell_tile_data(tile_position)
-	print(tile_data.get_custom_data("IsSolid"))
+	# print(tile_data.get_custom_data("IsSolid"))
 	return tile_data.get_custom_data("IsSolid") == true
 	
 func _on_area_entered(body: Area2D) -> void:
@@ -100,7 +102,22 @@ func die() -> void:
 	speed = 0
 	direction = Vector2.ZERO
 	set_collision_mask_value(1, false)
+	timer_enemy.start()
+
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite_2d.animation == "die":
 		queue_free()
+		print("I died",enemies.get_children())
+		
+		
+
+
+
+func _on_timer_enemy_timeout() -> void:
+	print("I died 2",enemies.get_children().size())
+	print("I died 3",enemies.get_children().is_empty())
+	if enemies.get_children().size() == 1:
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	timer_enemy.stop()

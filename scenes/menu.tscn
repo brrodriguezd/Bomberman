@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://f7qlqu3s8id6"]
+
+[ext_resource type="Script" uid="uid://y6s4rbm67wtw" path="res://scripts/main_menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://djf7y6rxkyq4b" path="res://assets/sprites/menu_sb.png" id="1_yqeox"]
+
+[sub_resource type="Theme" id="Theme_vjb58"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00606, 1.01439)
+theme = SubResource("Theme_vjb58")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="AlternativeBackground" type="TextureRect" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yqeox")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="MainContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.8673
+offset_top = 36.028
+offset_right = 248.133
+offset_bottom = 266.028
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.835023, 0.807569)
+theme_override_constants/separation = 10
+
+[node name="SingleButton" type="Button" parent="MainMenu/MainContainer"]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Singleplayer
+"
+
+[node name="MultiButton" type="Button" parent="MainMenu/MainContainer"]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Multiplayer"
+
+[node name="QuitButton" type="Button" parent="MainMenu/MainContainer"]
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Quit Game"
+
+[connection signal="pressed" from="MainMenu/MainContainer/SingleButton" to="MainMenu" method="_on_single_pressed"]
+[connection signal="pressed" from="MainMenu/MainContainer/SingleButton" to="MainMenu" method="_on_single_button_pressed"]
+[connection signal="pressed" from="MainMenu/MainContainer/MultiButton" to="MainMenu" method="_on_multi_button_pressed"]
+[connection signal="pressed" from="MainMenu/MainContainer/MultiButton" to="MainMenu" method="_on_multi_pressed"]
+[connection signal="pressed" from="MainMenu/MainContainer/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenu/MainContainer/QuitButton" to="MainMenu" method="_on_quit_pressed"]
