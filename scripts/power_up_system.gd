@@ -7,6 +7,7 @@ var player: Player
 @onready var animated_sprite : AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var bomb_placement_system : BombPlacementSystem = $"../BombPlacementSystem"
 @onready var speedup_timer: Timer = $SpeedUpTimer
+@onready var pass_walls_timer: Timer = $PassWallsTimer
 @onready var bomb: Bomb = $bomb
 
 func _ready() -> void:
@@ -24,19 +25,19 @@ func enable_power_up(power_up_type : PowerUps.PowerUps):
 			
 		PowerUps.PowerUps.SPEED_UP:
 			print("SPEED UP")
-			player.SPEED *= 2.0
+			player.SPEED *= 1.5
 			animated_sprite.speed_scale = 2
 			speedup_timer.start()
 			
 		PowerUps.PowerUps.PASS_WALLS:
 			print("WALLS")
 			player.set_collision_mask_value(1, false)
-			speedup_timer.start()
+			pass_walls_timer.start()
 
 
 func _on_speed_up_timer_timeout() -> void:
 	print("reducing speed")
-	player.SPEED /= 2.0
+	player.SPEED /= 1.5
 	animated_sprite.speed_scale = 0.5
 
 

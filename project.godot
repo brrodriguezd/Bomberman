@@ -67,6 +67,7 @@ place_bomb={
 2d_physics/layer_2="Bomb"
 2d_physics/layer_3="Explosion"
 2d_physics/layer_4="Enemy"
+2d_physics/layer_5="Tiles, just that player ins't too op during wall passing"
 
 [rendering]
 

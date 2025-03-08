@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://sery2v45pxwy" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://doevek88eysow" path="res://scenes/brickwall.tscn" id="4_lbhrr"]
 [ext_resource type="Resource" uid="uid://gyr8e0nrdvxb" path="res://resources/fire.tres" id="5_iywne"]
-[ext_resource type="Script" path="res://scripts/powerup_res.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://dxqb4ayubhllj" path="res://scripts/powerup_res.gd" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://cbgpmnhx5j3ph" path="res://assets/sprites/PowerUpBombUp.png" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cs402f120mogm" path="res://assets/sprites/PowerUpSpeedUp.png" id="8_vtaks"]
 [ext_resource type="Texture2D" uid="uid://3uta7gg8fy2c" path="res://assets/sprites/PowerUpWallPass.png" id="9_kvpfn"]
@@ -27,7 +27,7 @@ texture = ExtResource("1_fulmg")
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:0/0 = 0
 10:0/0 = 0
 11:0/0 = 0
@@ -40,7 +40,7 @@ texture = ExtResource("1_fulmg")
 6:1/0 = 0
 7:1/0 = 0
 8:1/0 = 0
-8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:1/0 = 0
 10:1/0 = 0
 11:1/0 = 0
@@ -149,7 +149,7 @@ texture = ExtResource("1_fulmg")
 3:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xvirv"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 17
 sources/0 = SubResource("TileSetAtlasSource_x3a5y")
 pattern_0 = SubResource("TileMapPattern_lbhrr")
 pattern_1 = SubResource("TileMapPattern_iywne")
