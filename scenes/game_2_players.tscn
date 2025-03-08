@@ -2,14 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_fulmg"]
 [ext_resource type="PackedScene" uid="uid://cfu5sexiy7t4p" path="res://scenes/player.tscn" id="2_3grl8"]
-[ext_resource type="Script" uid="uid://sery2v45pxwy" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
+[ext_resource type="Script" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://doevek88eysow" path="res://scenes/brickwall.tscn" id="4_lbhrr"]
 [ext_resource type="Resource" uid="uid://gyr8e0nrdvxb" path="res://resources/fire.tres" id="5_iywne"]
-[ext_resource type="Script" uid="uid://dxqb4ayubhllj" path="res://scripts/powerup_res.gd" id="6_p57ef"]
+[ext_resource type="Script" path="res://scripts/powerup_res.gd" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://cbgpmnhx5j3ph" path="res://assets/sprites/PowerUpBombUp.png" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cs402f120mogm" path="res://assets/sprites/PowerUpSpeedUp.png" id="8_vtaks"]
 [ext_resource type="Texture2D" uid="uid://3uta7gg8fy2c" path="res://assets/sprites/PowerUpWallPass.png" id="9_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://jpq7ows0ukex" path="res://scenes/enemy.tscn" id="10_vtaks"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lbhrr"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 65536, 0, 65537, 65536, 1)
@@ -165,6 +164,10 @@ type = 0
 texture = ExtResource("7_0tnpc")
 metadata/_custom_type_script = "uid://dxqb4ayubhllj"
 
+[sub_resource type="Resource" id="Resource_bafy4"]
+script = ExtResource("6_p57ef")
+type = 1
+
 [sub_resource type="Resource" id="Resource_dinhu"]
 script = ExtResource("6_p57ef")
 type = 2
@@ -190,7 +193,7 @@ script = ExtResource("2_lnu2h")
 
 [node name="player2" parent="." instance=ExtResource("2_3grl8")]
 modulate = Color(1, 0.6, 1, 1)
-position = Vector2(103, -48)
+position = Vector2(104, 48)
 metadata/player_number = 2
 
 [node name="player" parent="." instance=ExtResource("2_3grl8")]
@@ -203,15 +206,80 @@ metadata/player_number = 1
 position = Vector2(-24, -88)
 power_up_res = ExtResource("5_iywne")
 
+[node name="brickwall22" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(40, 72)
+power_up_res = ExtResource("5_iywne")
+
+[node name="brickwall23" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(8, 40)
+power_up_res = ExtResource("5_iywne")
+
+[node name="brickwall26" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-24, 72)
+power_up_res = ExtResource("5_iywne")
+
+[node name="brickwall27" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-24, 40)
+power_up_res = ExtResource("5_iywne")
+
+[node name="brickwall24" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(8, -56)
+power_up_res = ExtResource("5_iywne")
+
+[node name="brickwall25" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(24, 8)
+power_up_res = ExtResource("5_iywne")
+
+[node name="brickwall28" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-24, -56)
+power_up_res = ExtResource("5_iywne")
+
 [node name="brickwall2" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
-position = Vector2(-24, -8)
+position = Vector2(-40, -24)
+
+[node name="brickwall19" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-56, -72)
+
+[node name="brickwall20" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-56, -88)
+
+[node name="brickwall21" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-56, -40)
 
 [node name="brickwall3" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(40, -56)
 power_up_res = SubResource("Resource_u5sy4")
 
-[node name="brickwall4" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+[node name="brickwall12" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-56, -56)
+power_up_res = SubResource("Resource_u5sy4")
+
+[node name="brickwall42" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(56, -24)
+power_up_res = SubResource("Resource_u5sy4")
+
+[node name="brickwall43" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(56, 8)
+power_up_res = SubResource("Resource_u5sy4")
+
+[node name="brickwall44" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-8, -24)
+power_up_res = SubResource("Resource_u5sy4")
+
+[node name="brickwall45" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(40, 40)
+power_up_res = SubResource("Resource_bafy4")
+
+[node name="brickwall13" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(72, 40)
+power_up_res = SubResource("Resource_u5sy4")
+
+[node name="brickwall4" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(24, -24)
+power_up_res = SubResource("Resource_dinhu")
+
+[node name="brickwall46" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-40, 8)
 power_up_res = SubResource("Resource_dinhu")
 
 [node name="brickwall5" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
@@ -219,25 +287,76 @@ position = Vector2(-56, 40)
 power_up_res = SubResource("Resource_kvuet")
 
 [node name="brickwall11" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
-position = Vector2(-56, 40)
+position = Vector2(-8, 8)
 power_up_res = SubResource("Resource_kvuet")
 
 [node name="brickwall6" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(72, -56)
 
 [node name="brickwall7" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
-position = Vector2(88, 40)
+position = Vector2(104, 8)
 
 [node name="brickwall8" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
-position = Vector2(-104, 8)
+position = Vector2(-88, -24)
 
 [node name="brickwall9" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
-position = Vector2(24, -88)
+position = Vector2(40, -88)
 
 [node name="brickwall10" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
-position = Vector2(-104, -88)
+position = Vector2(-104, -24)
+
+[node name="brickwall29" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-72, -24)
+
+[node name="brickwall30" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-88, -8)
+
+[node name="brickwall31" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-104, 8)
+
+[node name="brickwall32" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-88, 24)
+
+[node name="brickwall33" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-72, 8)
+
+[node name="brickwall34" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(88, 8)
+
+[node name="brickwall35" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(72, 24)
+
+[node name="brickwall36" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(72, 56)
+
+[node name="brickwall37" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(72, 72)
+
+[node name="brickwall38" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(104, -8)
+
+[node name="brickwall39" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(88, -24)
+
+[node name="brickwall40" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(104, -40)
+
+[node name="brickwall41" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(120, -24)
+
+[node name="brickwall14" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-120, -24)
+
+[node name="brickwall15" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(-56, -24)
+
+[node name="brickwall16" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(72, 8)
+
+[node name="brickwall17" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(120, 8)
+
+[node name="brickwall18" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
+position = Vector2(136, 8)
 
 [node name="Enemies" type="Node" parent="BrickWalls"]
-
-[node name="Enemy" parent="BrickWalls/Enemies" instance=ExtResource("10_vtaks")]
-position = Vector2(40, -8)
