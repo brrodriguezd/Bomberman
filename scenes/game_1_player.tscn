@@ -1,5 +1,5 @@
 [gd_scene load_steps=18 format=4 uid="uid://i3p5w4jfl8ys"]
-
+ 
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_33hyj"]
 [ext_resource type="Script" uid="uid://sery2v45pxwy" path="res://scripts/tile_map_layer.gd" id="2_x46ie"]
 [ext_resource type="PackedScene" uid="uid://cfu5sexiy7t4p" path="res://scenes/player.tscn" id="3_6uy3p"]
