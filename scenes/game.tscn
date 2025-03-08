@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=4 uid="uid://ls7p7cbnjovb"]
+[gd_scene load_steps=18 format=4 uid="uid://ls7p7cbnjovb"]
 
 [ext_resource type="Texture2D" uid="uid://civdex41dseik" path="res://assets/sprites/world_tileset.png" id="1_fulmg"]
 [ext_resource type="PackedScene" uid="uid://cfu5sexiy7t4p" path="res://scenes/player.tscn" id="2_3grl8"]
 [ext_resource type="Script" uid="uid://sery2v45pxwy" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
-[ext_resource type="Shader" uid="uid://c28xl66ah6ko2" path="res://scenes/player.gdshader" id="4_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://doevek88eysow" path="res://scenes/brickwall.tscn" id="4_lbhrr"]
 [ext_resource type="Resource" uid="uid://gyr8e0nrdvxb" path="res://resources/fire.tres" id="5_iywne"]
 [ext_resource type="Script" uid="uid://dxqb4ayubhllj" path="res://scripts/powerup_res.gd" id="6_p57ef"]
@@ -160,19 +159,6 @@ sources/0 = SubResource("TileSetAtlasSource_x3a5y")
 pattern_0 = SubResource("TileMapPattern_lbhrr")
 pattern_1 = SubResource("TileMapPattern_iywne")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dinhu"]
-shader = ExtResource("4_kvpfn")
-shader_parameter/original_0 = Vector4(120, 0, 0, 0)
-shader_parameter/original_1 = Vector4(0, 0, 0, 0)
-shader_parameter/original_2 = Vector4(0, 0, 0, 0)
-shader_parameter/original_3 = Vector4(0, 0, 0, 0)
-shader_parameter/original_4 = Vector4(0, 0, 0, 0)
-shader_parameter/replace_0 = Vector4(0, 0, 0, 0)
-shader_parameter/replace_1 = Vector4(0, 0, 0, 0)
-shader_parameter/replace_2 = Vector4(0, 0, 0, 0)
-shader_parameter/replace_3 = Vector4(0, 0, 0, 0)
-shader_parameter/replace_4 = Vector4(0, 0, 0, 0)
-
 [sub_resource type="Resource" id="Resource_u5sy4"]
 script = ExtResource("6_p57ef")
 type = 0
@@ -199,7 +185,7 @@ tile_set = SubResource("TileSet_xvirv")
 script = ExtResource("2_lnu2h")
 
 [node name="player2" parent="." instance=ExtResource("2_3grl8")]
-material = SubResource("ShaderMaterial_dinhu")
+modulate = Color(1, 0.6, 1, 1)
 position = Vector2(103, -48)
 metadata/player_number = 2
 

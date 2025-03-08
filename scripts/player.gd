@@ -71,10 +71,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func die():
-	isdead = true
+	if isdead:
+		return
 	set_process_input(false)
 	animated_sprite.play("die")
 	SPEED = Vector2.ZERO
+	isdead = true
 
 func enable_power_up(power_up_type: PowerUps.PowerUps):
 	power_up_system.enable_power_up(power_up_type)

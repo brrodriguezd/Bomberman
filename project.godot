@@ -14,7 +14,8 @@ config/name="Bomberman"
 run/main_scene="uid://ls7p7cbnjovb"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.670588, 0.141176, 1)
-config/icon="res://icon.svg"
+config/icon="uid://bpl7hnhqcicmj"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
@@ -28,6 +29,10 @@ window/size/viewport_height=480
 [dotnet]
 
 project/assembly_name="Bomberman prototype"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDScript.h8.Palette/plugin.cfg")
 
 [input]
 
