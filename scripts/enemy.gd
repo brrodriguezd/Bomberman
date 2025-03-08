@@ -72,6 +72,8 @@ func is_direction_blocked(direction_to_check: Vector2) -> bool:
 	return tile_data.get_custom_data("IsSolid") == true
 	
 func _on_area_entered(body: Area2D) -> void:
+	if (body is PowerUp):
+		return
 	direction = calculate_new_direction(direction, false)
 
 func _on_body_entered(body: Node2D) -> void:
@@ -83,8 +85,14 @@ func _on_body_entered(body: Node2D) -> void:
 		direction = calculate_new_direction(direction, false)
 	
 func change_sprite_direction(new_direction: Vector2) -> void:
-	if [Vector2.LEFT, Vector2.RIGHT].has(new_direction):
-		animated_sprite_2d.scale.x = sign(new_direction.x)
+	if new_direction == Vector2.DOWN:
+		animated_sprite_2d.play("front")
+	elif new_direction == Vector2.UP:
+		animated_sprite_2d.play("back")
+	elif new_direction == Vector2.LEFT or new_direction == Vector2.RIGHT:
+		animated_sprite_2d.play("side")
+		animated_sprite_2d.scale.x = sign(-new_direction.x)
+
 
 func die() -> void:
 	animated_sprite_2d.play("die")

@@ -233,7 +233,7 @@ position = Vector2(24, -88)
 [node name="brickwall10" parent="BrickWalls" instance=ExtResource("4_lbhrr")]
 position = Vector2(-104, -88)
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Enemies" type="Node" parent="BrickWalls"]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("10_vtaks")]
+[node name="Enemy" parent="BrickWalls/Enemies" instance=ExtResource("10_vtaks")]
 position = Vector2(40, -8)
